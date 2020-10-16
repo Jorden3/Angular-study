@@ -12,7 +12,7 @@ export class RecipeService {
             'aaa',
             'aaa',
             [
-                new Ingredient('meat',1),
+                new Ingredient('meat', 1),
                 new Ingredient('fries', 3)
             ]),
             new Recipe(
@@ -26,8 +26,12 @@ export class RecipeService {
 
     constructor(private slService: ShoppingListService) {}
 
-    getRecipes(){
+    getRecipes() {
         return this.recipes.slice();
+    }
+
+    getRecipe(id: number) {
+        return this.recipes[id];
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
