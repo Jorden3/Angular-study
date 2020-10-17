@@ -20,8 +20,8 @@
             </button>
             <ul class="dropdown-menu">
                 <li><a style="cursor: pointer;" (click)="onAddtoShoppingList()">To shopping List</a></li>
-                <li><a (click) = "onEditRecipe()">Edit recipe</a></li>
-                <li><a href="#">Delete recipe</a></li>
+                <li><a (click)="onEditRecipe()">Edit recipe</a></li>
+                <li><a (click)="onDeleteRecipe()">Delete recipe</a></li>
                 
             </ul>
         </div>
@@ -29,7 +29,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        {{recipe.desciption}}
+        {{recipe.description}}
     </div>
 </div>
 <div class="row">

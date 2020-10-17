@@ -10,11 +10,12 @@ import { RecipeItemComponent } from './RecipeBook/recipe-item/recipe-item.compon
 import { RecipeDetailComponent } from './RecipeBook/recipe-detail/recipe-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './RecipeBook/recipes/recipes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './ShoppingList/shopping-list.service';
 import { RecipeStartComponent } from './RecipeBook/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './RecipeBook/recipe-edit/recipe-edit.component';
+import { RecipeService } from './RecipeBook/recipe.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +34,10 @@ import { RecipeEditComponent } from './RecipeBook/recipe-edit/recipe-edit.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
