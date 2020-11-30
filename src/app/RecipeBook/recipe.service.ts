@@ -1,50 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../ShoppingList/shopping-list.service';
 import { Recipe } from './recipe.model';
-
+import * as ShoppingListActions from '../ShoppingList/store/shopping-list.actions';
+import * as fromApp from '../store/app.reducer';
 @Injectable()
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
-    // private recipes: Recipe[] = [
-    //     new Recipe(
-    //         'aaa',
-    //         'aaa',
-    //         'aaa',
-    //         [
-    //             new Ingredient('meat', 1),
-    //             new Ingredient('fries', 3)
-    //         ]),
-    //         new Recipe(
-    //             'b',
-    //             'bbb',
-    //             'bbb',
-    //             [
-    //                 new Ingredient('meat', 1),
-    //                 new Ingredient('buns', 2)
-    //             ]),
-    //             new Recipe(
-    //                 'b',
-    //                 'bbb',
-    //                 'bbb',
-    //                 [
-    //                     new Ingredient('meat', 1),
-    //                     new Ingredient('buns', 2)
-    //                 ]),
-    //                 new Recipe(
-    //                     'b',
-    //                     'bbb',
-    //                     'bbb',
-    //                     [
-    //                         new Ingredient('meat', 1),
-    //                         new Ingredient('buns', 2)
-    //                     ])
-    // ];
 
     private recipes: Recipe[] = [];
 
-    constructor(private slService: ShoppingListService) {}
+    constructor(private slService: ShoppingListService, private store: Store<fromApp.AppState>) {}
 
     getRecipes() {
         return this.recipes.slice();
@@ -55,7 +23,8 @@ export class RecipeService {
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
-        this.slService.addIngrediants(ingredients);
+        // this.slService.addIngrediants(ingredients);
+        this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
     }
 
     addRecipe(recipe: Recipe) {
