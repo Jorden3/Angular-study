@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Angular-Study"
+    }
+  },
+  "defaultProject": "Angular-Study",
+  "cli": {
+    "analytics": "3aa0f6d5-da67-44e7-a14f-b3aa5111d4a9"
+  }
 }
