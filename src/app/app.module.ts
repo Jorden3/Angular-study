@@ -46,7 +46,6 @@ import { AuthModule } from './auth/auth.module';
       logOnly: environment.production
     })
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [AlertComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
