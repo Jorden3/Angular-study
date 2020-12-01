@@ -14,21 +14,14 @@ export class RecipeEffects {
         ofType(RecipesActions.FETCH_RECIPES),
         switchMap(() => {
             return this.http
-          .get<Recipe[]>(
+          .get<{recipes: Recipe[]}>(
             'https://recipe-book-2ea79.firebaseio.com//recipes.json'
           );
         }),
         map(recipes => {
-            return recipes.map(recipe => {
-              return {
-                ...recipe,
-                ingredients: recipe.ingredients ? recipe.ingredients : []
-              };
-            });
-        }),
-        map(recipes => {
-            return new RecipesActions.SetRecipes(recipes);
-        })
+          return new RecipesActions.SetRecipes(recipes ? recipes.recipes.map(recipe => ({ ingredients: [], ...recipe })): []);
+        }
+        )
     );
 
     @Effect({dispatch: false})
