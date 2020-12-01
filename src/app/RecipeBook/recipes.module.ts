@@ -8,6 +8,7 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
+import { RecipesRoutingModule } from './recipes.routing.module';
 import { RecipesComponent } from './recipes/recipes.component';
 
 @NgModule({
@@ -17,9 +18,9 @@ import { RecipesComponent } from './recipes/recipes.component';
         RecipeDetailComponent,
         RecipeStartComponent,
         RecipeEditComponent,
-        RecipesComponent
+        RecipesComponent,
     ],
-    imports: [RouterModule, SharedModule]
+    imports: [RouterModule, SharedModule, RecipesRoutingModule]
 })
 
 export class RecipesModule {}
